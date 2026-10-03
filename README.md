@@ -11,17 +11,18 @@ https://github.com/user-attachments/assets/a3b88eaf-ff6d-442f-8bae-57701d96e21c
 
 | Component | ESP32 Connection | Function |
 |---|---|---|
-| LED/Light | ESP32 GPIO Digital Output | Controls the workstation light |
-| Push Button | ESP32 GPIO Digital Input | Turns the light ON/OFF |
-| Resistor | LED/Button circuit | Limits current / provides proper input |
-| GND | ESP32 GND | Common ground |
-| VCC | ESP32 3.3V | Power supply |
+| LED1 | GPIO 18 | Status LED |
+| LED2 | GPIO 19 | PWM-controlled LED |
+| Push Button | GPIO 23 | Turns the light ON/OFF |
+| Potentiometer | GPIO 34 | Analog input |
 
-## Expected vs. Observed Behavior
+## PWM Test Results
 
-| Test | Expected Behavior | Observed Behavior | Result |
-|---|---|---|---|
-| Button Pressed | Status LED turns ON | Status LED turns ON | ✓ |
-| Button Released | Status LED turns OFF and PWM LED remains OFF | Status LED turns OFF and PWM LED remains OFF | ✓ |
-| Potentiometer at Minimum | PWM LED brightness is at its lowest level while the button is pressed | PWM LED is OFF or at minimum brightness | ✓ |
-| Potentiometer at Maximum | PWM LED reaches maximum brightness while the button is pressed | PWM LED reaches maximum brightness | ✓ |
+| Knob Position | PWM Duty Value | Expected PWM Duty Value |
+| ------------- | -------------: | ----------------------: |
+| 0%            |              0 |                       0 |
+| 25%           |             63 |                   63.75 |
+| 50%           |            127 |                   127.5 |
+| 75%           |            191 |                  191.25 |
+| 100%          |            255 |                     255 |
+
