@@ -1,4 +1,11 @@
 # Structured Workstation Light
+
+This ESP32 code uses a potentiometer to control the brightness of an LED using PWM. The potentiometer is connected to GPIO 34, which reads an analog value from 0 to 4095. This value is then converted to an 8-bit PWM duty cycle from 0 to 255.
+
+A push button connected to GPIO 23 acts as an enable control. When the button is pressed, the PWM value from the potentiometer is applied to the LED on GPIO 19. When the button is released, the PWM output is forced to 0, turning the LED off.
+
+GPIO 18 is used as a status LED to indicate when the button is pressed.
+
 ## Demo
 
 https://github.com/user-attachments/assets/a3b88eaf-ff6d-442f-8bae-57701d96e21c
